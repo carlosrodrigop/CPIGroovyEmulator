@@ -1,40 +1,27 @@
-
 import org.apache.camel.TypeConversionException
 import org.apache.camel.Exchange
-
-
-
 
 class Message {
     private Map properties =[:]
     private Map headers = [:]
-    private def bodyPayload
-    Exchange exchange
 
-    Message(exchange) {
-        this.exchange = exchange
+    private Exchange GExchange
+    private Object bodyPayload
+
+    Message(pExchange) {
+        GExchange = pExchange
     }
 
 
-    def <T> T getBody(Class<T> aClass) {
-        try{
-            def body = this.exchange.getIn().getBody(aClass)
-        }catch(TypeConversionException e){
+    Object getBody(Object aClass)  throws TypeConversionException{
+        def body
+
+        body = this.GExchange.getIn().getBody(aClass)
+
+        /*}catch(TypeConversionException e){
             println(e)
-        }
+        }*/
         return body ?:null
-/*        String className = aClass.getName()
-        switch(className){
-            case "java.lang.String":
-                return new String(this.bodyPayload)
-                break
-            case "java.io.Reader":
-                return new InputStreamReader(new ByteArrayInputStream(this.bodyPayload))
-                break
-            default:
-                return bodyPayload
-        }
-        return bodyPayload*/
     }
 
 
@@ -78,7 +65,7 @@ class Message {
         headers."$s" = o
     }
 
-    @Override
+
     Map<String, Object> getProperties() {
         return properties
     }

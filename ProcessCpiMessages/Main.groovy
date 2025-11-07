@@ -1,3 +1,9 @@
+/*************************************************************************************************/
+//                     <<< IMPORTANT POST CLONE ACTIVITIES >>>>
+// RUN THE BELOW COMMANDS IN THE MAVEN TO ADD THE LOCAL LIBRARIES FROM SAP changing the <YOURLOCALPROJECTDIRECTORYPATH> for your local path folder to the project
+//mvn install:install-file -Dfile=<YOURLOCALPROJECTDIRECTORYPATH>\CPIGroovyEmulator\SAPLibs\cloud.integration.script.apis-2.7.1.jar  -DgroupId=com.sap.cloud.integration  -DartifactId=script-apis  -Dversion=2.7.1  -Dpackaging=jar
+//mvn install:install-file -Dfile=<YOURLOCALPROJECTDIRECTORYPATH>\CPIGroovyEmulator\SAPLibs\com.sap.it.public.generic.api-2.25.0.jar  -DgroupId=com.sap.gateway.ip.core.customdev.util  -DartifactId=generic-api  -Dversion=2.25.0  -Dpackaging=jar
+//mvn install:install-file -Dfile=<YOURLOCALPROJECTDIRECTORYPATH>\CPIGroovyEmulator\SAPLibs\javax.activation_1.1.0.v201211130549.jar  -DgroupId=javax.activation  -DartifactId=activation  -Dversion=1.1.0.v201211130549  -Dpackaging=jar
 /*------------------------------------------------------------------------------------------------*/
 /* Please copy this one and create a new with a new name always that you will create a new script */
 /*------------------------------------------------------------------------------------------------*/
@@ -12,12 +18,13 @@ import Message
  ----------------------------------------------------------------------------------------------------------*/
 
 
+
 //********************************************************************
 //--- Main Class ( not copy it to CPI ---
 //  just fill the properties or change the payload that you need use to  process
 // and fill properties or headers according your process
 
-def body = new File("C:/teste/idoc_tanker.xml").text
+def body = new File("C:/teste/LMSBulkEntitlementCreation.xml").text
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 

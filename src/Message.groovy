@@ -31,7 +31,8 @@ class Message {
 
 
     void setBody(Object o) {
-       bodyPayload = o
+       this.bodyPayload = o
+        this.GExchange.getIn().setBody(o)
     }
 
    /* @Override

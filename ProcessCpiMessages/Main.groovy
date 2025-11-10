@@ -23,8 +23,10 @@ import Message
 //--- Main Class ( not copy it to CPI ---
 //  just fill the properties or change the payload that you need use to  process
 // and fill properties or headers according your process
+GroovyShell shell = new GroovyShell()
+Script script = shell.parse(new File("C:/Users/carlo/IdeaProjects/CPIGroovyEmulator/ProcessCpiMessages/Main.groovy"))
 
-def body = new File("C:/teste/LMSBulkEntitlementCreation.xml").text
+def body = new File("C:/test/TESTE.xml").text
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 

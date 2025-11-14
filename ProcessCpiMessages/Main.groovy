@@ -24,6 +24,8 @@ import Message
 //  just fill the properties or change the payload that you need use to  process
 // and fill properties or headers according your process
 GroovyShell shell = new GroovyShell()
+
+//below you will need indentify the location for you Groovy script file, in this case will be the same that you are working in the moment
 Script script = shell.parse(new File("C:/Users/carlo/IdeaProjects/CPIGroovyEmulator/ProcessCpiMessages/Main.groovy"))
 
 def body = new File("C:/test/TESTE.xml").text

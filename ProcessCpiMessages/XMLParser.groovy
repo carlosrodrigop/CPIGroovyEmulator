@@ -22,7 +22,7 @@ GroovyShell shell = new GroovyShell()
 
 Script script = shell.parse(new File("C:/Users/z003xkny/CPIGroovyEmulator/ProcessCpiMessages/XMLParser.groovy"))
 
-def body = new File("C:/teste/TesteXML.xml").text
+def body = new File("C:/Users/z003xkny/CPIGroovyEmulator/payloadExamples/TesteXML.xml").text
 CamelContext context = new DefaultCamelContext()
 Exchange exchange = new DefaultExchange(context)
 
